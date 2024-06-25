@@ -1,0 +1,15 @@
+<nav>
+  <div class="navbar-container">
+    <ul class="navbar-menu">
+      <li>
+        <button (click)="Chat()">Chat</button>
+      </li>
+      <li *ngIf="user">
+        <button (click)="Profile()">Profile</button>
+      </li>
+      <li *ngIf="user">
+        <button (click)="Logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>

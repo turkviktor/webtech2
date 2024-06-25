@@ -1,0 +1,16 @@
+<div class="chat">
+    <div class="messages">
+        <p *ngFor="let m of messages.slice().reverse()">{{ m.user + ": " + m.message }}</p>
+    </div>
+  <div>
+    <button (click)="sendMessage()">Send</button>
+    <input
+      [(ngModel)]="message.message"
+      (keydown.enter)="sendMessage()"
+      type="text"
+    />
+  </div>
+</div>
+<div class="chat">
+  <p>Usercount: {{userCount}}</p>
+</div>

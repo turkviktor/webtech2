@@ -1,0 +1,27 @@
+
+<div *ngIf="!editMode" class="profile-container">
+    <img src="assets/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+    <div class="name">{{UserDetails.username}}</div>
+    <div class="bio">{{UserDetails.description}}</div>
+    
+    <div class="social-links">
+        <img src="assets/twitterlogo.png"alt="twitter" class="profile-picture"> <a href="https://twitter.com/{{UserDetails.twitterhandle}}">{{UserDetails.twitterhandle}}</a> 
+        <img src="assets/linkedinlogo.png" alt="linkedin" class="profile-picture"> <a href="https://linkedin.com/in/{{UserDetails.linkedinhandle}}">{{UserDetails.linkedinhandle}}</a>
+        <img src="assets/githublogo.png" alt="github" class="profile-picture"> <a href="https://github.com/{{UserDetails.githubhandle}}">{{UserDetails.githubhandle}}</a>
+    </div><div>
+<button (click)="editMode = !editMode">Edit Profile</button>
+</div>
+</div>
+
+<div *ngIf="editMode" class="profile-container">
+    <img src="assets/profile-picture.jpg" alt="Profile Picture" class="profile-picture"> <br>
+    Description: <div class="bio"><input type="text" [(ngModel)]="formData.description" placeholder="{{UserDetails.description}}"></div>
+    <div class="social-links">
+     Twitter: <input type="text" [(ngModel)]="formData.twitterhandle" placeholder="{{UserDetails.twitterhandle}}">
+     Linkedin: <input type="text" [(ngModel)]="formData.linkedinhandle" placeholder="{{UserDetails.linkedinhandle}}">
+     Github: <input type="text" [(ngModel)]="formData.githubhandle" placeholder="{{UserDetails.githubhandle}}">
+    <button (click)="saveData()">Save Changes</button>
+    <button (click)="editMode = !editMode">Discard Changes</button>
+    </div>
+</div>
+
